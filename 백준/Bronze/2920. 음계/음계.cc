@@ -1,10 +1,6 @@
 #include <iostream>
 using namespace std;
 
-bool comp(int a, int b) {
-    return b == a + 1;
-}
-
 int main() {
     const int ARR_SIZE = 8;
     int arr[ARR_SIZE];
