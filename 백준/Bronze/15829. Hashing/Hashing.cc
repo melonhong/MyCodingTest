@@ -1,27 +1,21 @@
 #include <iostream>
-#include <cmath>
+#include <string>
 using namespace std;
 
 int main() {
-    const int r = 31;
-    const int M = 1234567891;
+    const long long M = 1234567891;
+    long long hash = 0, r = 1;
     
     int l;
     cin >> l;
+    string s;
+    cin >> s;
     
-    int* s = new int[l];
-    for (int i = 0; i < l; i++) {
-        char c;
-        cin >> c;
-        s[i] = (int) c - 'a' + 1;
+    for (int i = 0; i < s.length(); i++) {
+        hash += (r * ((long) s[i] - 'a' + 1)) % M;
+        r = (r * 31) % M;
     }
     
-    double sum = 0;
-    for (int i = 0; i < l; i++) {
-        sum += s[i] * pow(r, i);
-    }
-    
-    cout.precision(0);
-    cout << fixed << sum;
+    cout << hash % M;
 	return 0;
 }
