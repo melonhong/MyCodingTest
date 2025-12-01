@@ -8,10 +8,9 @@ vector<int> solution(vector<int> arr)
     vector<int> answer;
 
     for (auto i : arr) {
-        if (answer.empty()) {
+        if (answer.empty() || answer.back() != i) {
             answer.push_back(i);
-        } else if (answer.back() == i) continue;
-        else answer.push_back(i);
+        }
     }
 
     return answer;
